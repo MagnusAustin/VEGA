@@ -57,7 +57,7 @@ Welcome to the Automated Attendance System repository! This project aims to stre
    - For general inquiries, you can contact the project maintainers at [manastare7@gmail.com](mailto:manastare7@gmail.com).
 
 ## Acknowledgments:
-   - Special thanks to [Soham More],[Kaushik Prabhu-Nerurkar] and [Adarsh Pandey] for their contributions to this project.
+   - Special thanks to Soham More, Kaushik Prabhu-Nerurkar and Adarsh Pandey for their contributions to this project.
 
 Thank you for choosing the Automated Attendance System! We hope this tool enhances your classroom management experience.
 
