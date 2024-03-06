@@ -41,7 +41,7 @@ Welcome to the Automated Attendance System repository! This project aims to stre
 4. **Usage:**
    - Start the system by running the main script:
      ```
-     python main.py
+     python app.py
      ```
    - Follow the on-screen instructions to initialize the facial recognition and voice recognition features.
    - Access the real-time attendance dashboard through the provided web interface.
