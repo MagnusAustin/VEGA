@@ -25,13 +25,12 @@ Welcome to the Automated Attendance System repository! This project aims to stre
 1. **Clone the Repository:**
    - Clone this repository to your local machine using the following command:
      ```
-     git clone https://github.com/your-username/attendance-system.git
+     git clone https://github.com/MagnusAustin/VEGA.git
      ```
 
 2. **Installation:**
    - Navigate to the project directory and install the required dependencies:
      ```
-     cd attendance-system
      pip install -r requirements.txt
      ```
 
@@ -54,11 +53,11 @@ Welcome to the Automated Attendance System repository! This project aims to stre
    - This project is licensed under the [MIT License](LICENSE).
 
 ## Support:
-   - If you encounter any issues or have questions, please [open an issue](https://github.com/your-username/attendance-system/issues) on the repository.
-   - For general inquiries, you can contact the project maintainers at [email@example.com](mailto:email@example.com).
+   - If you encounter any issues or have questions, please [open an issue](https://github.com/MagnusAustin/VEGA/issues) on the repository.
+   - For general inquiries, you can contact the project maintainers at [manastare7@gmail.com](mailto:manastare7@gmail.com).
 
 ## Acknowledgments:
-   - Special thanks to [author's name] for their contributions to this project.
+   - Special thanks to [Soham More],[Kaushik Prabhu-Nerurkar] and [Adarsh Pandey] for their contributions to this project.
 
 Thank you for choosing the Automated Attendance System! We hope this tool enhances your classroom management experience.
 
