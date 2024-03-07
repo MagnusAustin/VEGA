@@ -18,7 +18,7 @@
 }
 
 :root {
-  --blue: rgba(137, 151, 243, 0.914);
+  --blue: rgba(51, 77, 248, 0.914);
   --white: #fff;
   --gray: #f5f5f5;
   --black1: #222;
@@ -624,50 +624,50 @@ body {
                 <!-- ================= New Customers ================ -->
                 <div class="recentCustomers">
                     <div class="cardHeader">
-                        <h2>Report</h2>
+                        <h2>Report for Today</h2>
                     </div>
 
                     <canvas id="attendanceChart" width="400" height="400"></canvas>
 
-                    <script>
-                        // Data for the chart
-                        const studentNames = ['Soham', 'Kaushik', 'Manas', 'Adarsh'];
-                        const attendanceData = [80, 90, 75, 95]; // Example attendance percentages
-                
-                        // Create the chart
-                        const ctx = document.getElementById('attendanceChart').getContext('2d');
-                        const attendanceChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: studentNames,
-                                datasets: [{
-                                    label: 'Attendance Percentage',
-                                    data: attendanceData,
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 206, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 100
-                                    }
-                                }
-                            }
-                        });
-                    </script>
+    <script>
+        // Data for the chart
+        const studentNames = {{ names|tojson }};
+        const attendanceData = {{ attendance_percentage|tojson }}; // Assuming rolls represent attendance percentages
+        
+        // Create the chart
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: studentNames,
+                datasets: [{
+                    label: 'Attendance Percentage',
+                    data: attendanceData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
                     
                     
                 </div>

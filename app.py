@@ -76,13 +76,25 @@ def train_model():
 
 
 # Extract info from today's attendance file in attendance folder
+import pandas as pd
+
 def extract_attendance():
     df = pd.read_csv(f'Attendance/Attendance-{datetoday}.csv')
     names = df['Name']
     rolls = df['Roll']
     times = df['Time']
     l = len(df)
-    return names, rolls, times, l
+    
+   # Calculate attendance percentage for each user
+    attendance_counts = df['Name'].value_counts()
+    total_sessions = l  # Total number of sessions
+    attendance_percentage = {}
+    for name, count in attendance_counts.items():
+        attendance_percentage[name] = (count /1) * 100
+
+    return names, rolls, times, l, attendance_percentage
+
+
 
 
 # Add Attendance of a specific user
@@ -129,14 +141,15 @@ def deletefolder(duser):
 
 @app.route('/jadoo_attendance')
 def home():
-    names, rolls, times, l = extract_attendance()
+    names, rolls, times, l,attendance_percentage = extract_attendance()
     return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
 
 @app.route('/')
 def dashboard():
-    names, rolls, times, l = extract_attendance()
+    names, rolls, times, l,attendance_percentage = extract_attendance()
     userlist, names, rolls, l = getallusers()
-    return render_template('dashboard.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
+    return render_template('dashboard.html', names=names, rolls=rolls, attendance_percentage=attendance_percentage, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
+
 
 
 ## List users page
@@ -174,7 +187,7 @@ def deleteuser():
 # This function will run when we click on Take Attendance Button.
 @app.route('/start', methods=['GET'])
 def start():
-    names, rolls, times, l = extract_attendance()
+    names, rolls, times, l,attendance_percentage = extract_attendance()
 
     if 'face_recognition_model.pkl' not in os.listdir('static'):
         return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2, mess='There is no trained model in the static folder. Please add a new face to continue.')
@@ -233,7 +246,7 @@ def add():
     cv2.destroyAllWindows()
     print('Training Model')
     train_model()
-    names, rolls, times, l = extract_attendance()
+    names, rolls, times, l,attendance_percentage = extract_attendance()
     return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=totalreg(), datetoday2=datetoday2)
 
 
